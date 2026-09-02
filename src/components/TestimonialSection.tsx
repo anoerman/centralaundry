@@ -20,8 +20,8 @@ export default function TestimonialSection() {
         <Carousel className="mt-6" opts={{ loop: true }}>
           <CarouselContent>
             {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id}>
-                <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
+              <CarouselItem key={testimonial.id} className="lg:basis-1/2">
+                <div className="h-full rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
                   <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-gray-100" />
                   <p className="text-gray-700">&ldquo;{testimonial.quote}&rdquo;</p>
                   <p className="mt-4 font-semibold text-brand-navy">
