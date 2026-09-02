@@ -1,5 +1,5 @@
-import { Footerdemo } from "@/components/ui/footer-section";
+import { Footersection } from "@/components/ui/footer-section";
 
 export default function Footer() {
-  return <Footerdemo />;
+  return <Footersection />;
 }
