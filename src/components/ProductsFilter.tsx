@@ -1,7 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { WashingMachine, Wind, Shirt, type LucideIcon } from "lucide-react";
+import {
+  WashingMachine,
+  Wind,
+  Shirt,
+  SlidersHorizontal,
+  type LucideIcon,
+} from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/types";
 
@@ -34,6 +40,7 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
   const [brand, setBrand] = useState<"all" | string>("all");
   const [sort, setSort] = useState<SortOption>("name-asc");
   const [pageSize, setPageSize] = useState<PageSize>(10);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))),
@@ -68,7 +75,44 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <div className="mt-8 rounded-lg border border-gray-200 p-4">
+      <div className="mt-8 flex items-center justify-between gap-4">
+        <button
+          type="button"
+          onClick={() => setFiltersOpen((open) => !open)}
+          aria-expanded={filtersOpen}
+          className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+            filtersOpen
+              ? "border-brand-blue bg-brand-blue text-white"
+              : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
+          }`}
+        >
+          <SlidersHorizontal className="h-4 w-4" />
+          Filters
+        </button>
+
+        <label className="flex items-center gap-1.5 text-sm text-gray-600">
+          Show
+          <select
+            className={selectClass}
+            value={pageSize}
+            onChange={(e) =>
+              setPageSize(
+                e.target.value === "all"
+                  ? "all"
+                  : (Number(e.target.value) as PageSize)
+              )
+            }
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={30}>30</option>
+            <option value="all">All</option>
+          </select>
+        </label>
+      </div>
+
+      {filtersOpen && (
+      <div className="mt-4 rounded-lg border border-gray-200 p-4">
         <div className="flex flex-wrap gap-2">
           <button
             type="button"
@@ -133,28 +177,9 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
               ))}
             </select>
           </label>
-
-          <label className="flex items-center gap-1.5 text-sm text-gray-600 sm:ml-auto">
-            Show
-            <select
-              className={selectClass}
-              value={pageSize}
-              onChange={(e) =>
-                setPageSize(
-                  e.target.value === "all"
-                    ? "all"
-                    : (Number(e.target.value) as PageSize)
-                )
-              }
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={30}>30</option>
-              <option value="all">All</option>
-            </select>
-          </label>
         </div>
       </div>
+      )}
 
       {visibleProducts.length === 0 ? (
         <p className="mt-12 text-center text-gray-500">
