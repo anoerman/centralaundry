@@ -153,6 +153,12 @@ function Footersection() {
                 Business Packages
               </Link>
               <Link
+                href="/events"
+                className="block transition-colors hover:text-primary"
+              >
+                Events
+              </Link>
+              <Link
                 href="/contact"
                 className="block transition-colors hover:text-primary"
               >

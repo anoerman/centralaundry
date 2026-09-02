@@ -47,3 +47,16 @@ export interface Stat {
 export interface Brand {
   name: string;
 }
+
+export interface CompanyEvent {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  location: string;
+  /** Up to 5 image paths. First image is used as the primary/list thumbnail. */
+  images: string[];
+  excerpt: string;
+  description: string;
+  highlights: string[];
+}
