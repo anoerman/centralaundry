@@ -1,6 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 import PackageCard from "@/components/PackageCard";
-import { HeroSection } from "@/components/blocks/hero-section-6";
+import { HeroSection } from "@/components/blocks/hero-section";
 import { products } from "@/data/products";
 import { packages } from "@/data/packages";
 
