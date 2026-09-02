@@ -5,6 +5,9 @@ export interface Product {
   brand: string;
   image: string;
   price: number;
+  /** Original price before discount. When set and higher than `price`, the product shows a Sale badge. */
+  originalPrice?: number;
+  isBestSeller?: boolean;
   specs: string[];
   description: string;
 }
