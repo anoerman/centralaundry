@@ -2,6 +2,9 @@ import ProductCard from "@/components/ProductCard";
 import PackageCard from "@/components/PackageCard";
 import TeamCard from "@/components/TeamCard";
 import TestimonialSection from "@/components/TestimonialSection";
+import StatsStrip from "@/components/StatsStrip";
+import BrandRow from "@/components/BrandRow";
+import CtaBand from "@/components/CtaBand";
 import { HeroSection } from "@/components/blocks/hero-section";
 import { products } from "@/data/products";
 import { packages } from "@/data/packages";
@@ -11,6 +14,8 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+
+      <StatsStrip />
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <h2 className="text-2xl font-bold text-brand-navy">
@@ -22,6 +27,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <BrandRow />
 
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-6xl px-4">
@@ -46,6 +53,8 @@ export default function Home() {
       </section>
 
       <TestimonialSection />
+
+      <CtaBand />
     </>
   );
 }

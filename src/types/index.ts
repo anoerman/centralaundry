@@ -33,3 +33,12 @@ export interface Testimonial {
   photo: string;
   quote: string;
 }
+
+export interface Stat {
+  label: string;
+  value: string;
+}
+
+export interface Brand {
+  name: string;
+}
