@@ -3,7 +3,8 @@ export interface Product {
   name: string;
   category: "washer" | "dryer" | "other";
   brand: string;
-  image: string;
+  /** Up to 5 image paths. First image is used as the primary/list thumbnail. */
+  images: string[];
   price: number;
   /** Original price before discount. When set and higher than `price`, the product shows a Sale badge. */
   originalPrice?: number;

@@ -205,14 +205,14 @@ export default function ProductsFilter({
         </p>
       ) : (
         <>
-          <p className="mt-6 text-sm text-gray-500">
-            Showing {shownProducts.length} of {visibleProducts.length} products
-          </p>
           <div className="mt-3 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {shownProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
+          <p className="mt-6 text-sm text-gray-500">
+            Showing {shownProducts.length} of {visibleProducts.length} products
+          </p>
         </>
       )}
     </div>
