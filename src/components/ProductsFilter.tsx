@@ -27,7 +27,7 @@ const categoryIcons: Record<Product["category"], LucideIcon> = {
 };
 
 const sortLabels: Record<SortOption, string> = {
-  "name-asc": "Name (A–Z)",
+  "name-asc": "Name (A-Z)",
   "price-asc": "Price (Low to High)",
   "price-desc": "Price (High to Low)",
 };
@@ -52,11 +52,11 @@ export default function ProductsFilter({
 
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))),
-    [products]
+    [products],
   );
   const brands = useMemo(
     () => Array.from(new Set(products.map((p) => p.brand))).sort(),
-    [products]
+    [products],
   );
 
   const visibleProducts = useMemo(() => {
@@ -94,6 +94,25 @@ export default function ProductsFilter({
         )}
 
         <div className="flex items-center justify-between gap-4 sm:justify-end">
+          <label className="flex items-center gap-1.5 text-sm text-gray-600">
+            Show
+            <select
+              className={selectClass}
+              value={pageSize}
+              onChange={(e) =>
+                setPageSize(
+                  e.target.value === "all"
+                    ? "all"
+                    : (Number(e.target.value) as PageSize),
+                )
+              }
+            >
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={30}>30</option>
+              <option value="all">All</option>
+            </select>
+          </label>
           <button
             type="button"
             onClick={() => setFiltersOpen((open) => !open)}
@@ -107,97 +126,77 @@ export default function ProductsFilter({
             <SlidersHorizontal className="h-4 w-4" />
             Filters
           </button>
-
-          <label className="flex items-center gap-1.5 text-sm text-gray-600">
-            Show
-            <select
-              className={selectClass}
-              value={pageSize}
-              onChange={(e) =>
-                setPageSize(
-                  e.target.value === "all"
-                    ? "all"
-                    : (Number(e.target.value) as PageSize)
-                )
-              }
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={30}>30</option>
-              <option value="all">All</option>
-            </select>
-          </label>
         </div>
       </div>
 
       {filtersOpen && (
-      <div className="mt-4 rounded-lg border border-gray-200 p-4">
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setCategory("all")}
-            className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-              category === "all"
-                ? "border-brand-blue bg-brand-blue text-white"
-                : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
-            }`}
-          >
-            All
-          </button>
-          {categories.map((c) => {
-            const Icon = categoryIcons[c];
-            const isActive = category === c;
-            return (
-              <button
-                key={c}
-                type="button"
-                onClick={() => setCategory(isActive ? "all" : c)}
-                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "border-brand-blue bg-brand-blue text-white"
-                    : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
-                }`}
+        <div className="mt-4 rounded-lg border border-gray-200 p-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => setCategory("all")}
+              className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+                category === "all"
+                  ? "border-brand-blue bg-brand-blue text-white"
+                  : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
+              }`}
+            >
+              All
+            </button>
+            {categories.map((c) => {
+              const Icon = categoryIcons[c];
+              const isActive = category === c;
+              return (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setCategory(isActive ? "all" : c)}
+                  className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "border-brand-blue bg-brand-blue text-white"
+                      : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
+                  }`}
+                >
+                  <Icon className="h-4 w-4 shrink-0" />
+                  {categoryLabels[c]}s
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-gray-100 pt-4">
+            <label className="flex items-center gap-1.5 text-sm text-gray-600">
+              Brand
+              <select
+                className={selectClass}
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
               >
-                <Icon className="h-4 w-4 shrink-0" />
-                {categoryLabels[c]}s
-              </button>
-            );
-          })}
-        </div>
+                <option value="all">All</option>
+                {brands.map((b) => (
+                  <option key={b} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-gray-100 pt-4">
-          <label className="flex items-center gap-1.5 text-sm text-gray-600">
-            Brand
-            <select
-              className={selectClass}
-              value={brand}
-              onChange={(e) => setBrand(e.target.value)}
-            >
-              <option value="all">All</option>
-              {brands.map((b) => (
-                <option key={b} value={b}>
-                  {b}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <label className="flex items-center gap-1.5 text-sm text-gray-600">
-            Sort
-            <select
-              className={selectClass}
-              value={sort}
-              onChange={(e) => setSort(e.target.value as SortOption)}
-            >
-              {(Object.keys(sortLabels) as SortOption[]).map((key) => (
-                <option key={key} value={key}>
-                  {sortLabels[key]}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label className="flex items-center gap-1.5 text-sm text-gray-600">
+              Sort
+              <select
+                className={selectClass}
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortOption)}
+              >
+                {(Object.keys(sortLabels) as SortOption[]).map((key) => (
+                  <option key={key} value={key}>
+                    {sortLabels[key]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
         </div>
-      </div>
       )}
 
       {visibleProducts.length === 0 ? (

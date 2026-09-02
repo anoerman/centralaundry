@@ -120,4 +120,108 @@ export const products: Product[] = [
     description:
       "Complete dry cleaning solution for laundry businesses expanding into garment care.",
   },
+  {
+    id: "washer-commercial-12kg",
+    name: "Commercial Washer 12kg",
+    category: "washer",
+    brand: "Maytag",
+    image: "/products/washer-12kg.jpg",
+    price: 48000000,
+    specs: ["Capacity 12kg", "Coin/token ready", "Stainless drum", "220V"],
+    description:
+      "Mid-capacity washer balancing throughput and footprint for growing laundromats.",
+  },
+  {
+    id: "washer-top-load-9kg",
+    name: "Top Load Washer 9kg",
+    category: "washer",
+    brand: "Comel",
+    image: "/products/washer-top-load-9kg.jpg",
+    price: 18500000,
+    originalPrice: 21000000,
+    specs: ["Capacity 9kg", "Top-load", "Digital display", "220V"],
+    description:
+      "Budget-friendly top-load washer for startup laundromats and small shops.",
+  },
+  {
+    id: "washer-commercial-30kg",
+    name: "Commercial Washer 30kg",
+    category: "washer",
+    brand: "Girbau",
+    image: "/products/washer-30kg.jpg",
+    price: 105000000,
+    isBestSeller: true,
+    specs: ["Capacity 30kg", "Programmable cycles", "Stainless drum", "380V"],
+    description:
+      "Top-tier capacity washer for industrial laundry plants processing bulk linens daily.",
+  },
+  {
+    id: "dryer-commercial-10kg",
+    name: "Commercial Dryer 10kg",
+    category: "dryer",
+    brand: "Speed Queen",
+    image: "/products/dryer-10kg.jpg",
+    price: 29500000,
+    specs: ["Capacity 10kg", "Electric", "Reversing tumble", "220V"],
+    description:
+      "Compact dryer that pairs with our 10kg washer for a matched small-shop setup.",
+  },
+  {
+    id: "dryer-commercial-30kg",
+    name: "Commercial Dryer 30kg",
+    category: "dryer",
+    brand: "Whirlpool",
+    image: "/products/dryer-30kg.jpg",
+    price: 82000000,
+    originalPrice: 92000000,
+    specs: ["Capacity 30kg", "Gas/electric", "Programmable cycles", "380V"],
+    description:
+      "Matched high-capacity dryer for our 30kg washer, built for industrial-scale plants.",
+  },
+  {
+    id: "dryer-stackable-8kg",
+    name: "Stackable Dryer 8kg",
+    category: "dryer",
+    brand: "Comel",
+    image: "/products/dryer-stackable-8kg.jpg",
+    price: 21000000,
+    specs: ["Capacity 8kg", "Stackable design", "Electric", "220V"],
+    description:
+      "Space-saving stackable dryer for laundromats with limited floor space.",
+  },
+  {
+    id: "steam-press-machine",
+    name: "Steam Press Machine",
+    category: "other",
+    brand: "Comel",
+    image: "/products/steam-press-machine.jpg",
+    price: 15500000,
+    specs: ["Steam-heated plate", "Adjustable pressure", "220V"],
+    description:
+      "Finishes shirts and flat garments fast, a common add-on for full-service laundry shops.",
+  },
+  {
+    id: "garment-conveyor",
+    name: "Garment Conveyor System",
+    category: "other",
+    brand: "Girbau",
+    image: "/products/garment-conveyor.jpg",
+    price: 42000000,
+    originalPrice: 47000000,
+    specs: ["Motorized rail", "150-garment capacity", "220V"],
+    description:
+      "Organizes finished garments for pickup, ideal for high-volume dry cleaning operations.",
+  },
+  {
+    id: "water-softener-system",
+    name: "Commercial Water Softener",
+    category: "other",
+    brand: "Maytag",
+    image: "/products/water-softener.jpg",
+    price: 27500000,
+    isBestSeller: true,
+    specs: ["Protects machines from hard water", "Auto-regeneration", "Whole-facility"],
+    description:
+      "Extends machine lifespan and improves wash quality by treating incoming water supply.",
+  },
 ];
