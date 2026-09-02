@@ -36,7 +36,7 @@ Extracted from pusatmesinlaundry.com's theme CSS custom properties (`--clenq-*`)
 
 | Utility | Hex | Role |
 |---|---|---|
-| `brand-yellow` | `#fff203` | Accent / CTA buttons |
+| `brand-yellow` | `#f5b700` | Accent / CTA buttons |
 | `brand-navy` | `#043e74` | Primary brand color (headers, headings, body accents) |
 | `brand-dark` | `#172000` | Secondary dark tone (footer) |
 | `brand-blue` | `#298be7` | Secondary accent (links, price highlights) |
