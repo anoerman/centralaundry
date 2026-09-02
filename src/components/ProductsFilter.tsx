@@ -35,7 +35,15 @@ const sortLabels: Record<SortOption, string> = {
 const selectClass =
   "rounded-md border border-gray-300 bg-white py-1.5 pl-2 pr-7 text-sm focus:border-brand-blue focus:outline-none";
 
-export default function ProductsFilter({ products }: { products: Product[] }) {
+export default function ProductsFilter({
+  products,
+  title,
+  subtitle,
+}: {
+  products: Product[];
+  title?: string;
+  subtitle?: string;
+}) {
   const [category, setCategory] = useState<"all" | Product["category"]>("all");
   const [brand, setBrand] = useState<"all" | string>("all");
   const [sort, setSort] = useState<SortOption>("name-asc");
@@ -75,40 +83,51 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <div className="mt-8 flex items-center justify-between gap-4">
-        <button
-          type="button"
-          onClick={() => setFiltersOpen((open) => !open)}
-          aria-expanded={filtersOpen}
-          className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
-            filtersOpen
-              ? "border-brand-blue bg-brand-blue text-white"
-              : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
-          }`}
-        >
-          <SlidersHorizontal className="h-4 w-4" />
-          Filters
-        </button>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        {(title || subtitle) && (
+          <div>
+            {title && (
+              <h1 className="text-3xl font-bold text-brand-navy">{title}</h1>
+            )}
+            {subtitle && <p className="mt-2 text-gray-600">{subtitle}</p>}
+          </div>
+        )}
 
-        <label className="flex items-center gap-1.5 text-sm text-gray-600">
-          Show
-          <select
-            className={selectClass}
-            value={pageSize}
-            onChange={(e) =>
-              setPageSize(
-                e.target.value === "all"
-                  ? "all"
-                  : (Number(e.target.value) as PageSize)
-              )
-            }
+        <div className="flex items-center justify-between gap-4 sm:justify-end">
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((open) => !open)}
+            aria-expanded={filtersOpen}
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+              filtersOpen
+                ? "border-brand-blue bg-brand-blue text-white"
+                : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
+            }`}
           >
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-            <option value={30}>30</option>
-            <option value="all">All</option>
-          </select>
-        </label>
+            <SlidersHorizontal className="h-4 w-4" />
+            Filters
+          </button>
+
+          <label className="flex items-center gap-1.5 text-sm text-gray-600">
+            Show
+            <select
+              className={selectClass}
+              value={pageSize}
+              onChange={(e) =>
+                setPageSize(
+                  e.target.value === "all"
+                    ? "all"
+                    : (Number(e.target.value) as PageSize)
+                )
+              }
+            >
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={30}>30</option>
+              <option value="all">All</option>
+            </select>
+          </label>
+        </div>
       </div>
 
       {filtersOpen && (
