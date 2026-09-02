@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ProductGallery from "@/components/ProductGallery";
 import PackageCard from "@/components/PackageCard";
 import { packages } from "@/data/packages";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export function generateStaticParams() {
   return packages.map((pkg) => ({ id: pkg.id }));
@@ -45,7 +46,13 @@ export default async function PackageDetailPage({
           <p className="mt-4 text-gray-700">{pkg.description}</p>
 
           <div className="mt-6">
-            <Button href="/contact">Inquire About This Package</Button>
+            <Button
+              href={getWhatsAppLink(
+                `Hi CentralLaundry, I'm interested in ${pkg.name}. Could you share more details?`
+              )}
+            >
+              Inquire About This Package
+            </Button>
           </div>
 
           <ul className="mt-6 space-y-2.5 border-t border-gray-100 pt-6 text-sm text-gray-600">

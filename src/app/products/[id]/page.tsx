@@ -5,6 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 const categoryLabels: Record<string, string> = {
   washer: "Washers",
@@ -97,7 +98,13 @@ export default async function ProductDetailPage({
             <p className="mt-4 text-gray-700">{product.description}</p>
 
             <div className="mt-6">
-              <Button href="/contact">Inquire About This Product</Button>
+              <Button
+                href={getWhatsAppLink(
+                  `Hi CentralLaundry, I'm interested in ${product.name}. Could you share more details?`
+                )}
+              >
+                Inquire About This Product
+              </Button>
             </div>
 
             <ul className="mt-6 space-y-2.5 border-t border-gray-100 pt-6 text-sm text-gray-600">
