@@ -27,7 +27,7 @@ const sortLabels: Record<SortOption, string> = {
 };
 
 const selectClass =
-  "rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-blue focus:outline-none";
+  "rounded-md border border-gray-300 bg-white py-1.5 pl-2 pr-7 text-sm focus:border-brand-blue focus:outline-none";
 
 export default function ProductsFilter({ products }: { products: Product[] }) {
   const [category, setCategory] = useState<"all" | Product["category"]>("all");
@@ -68,115 +68,90 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="mt-8 flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => setCategory("all")}
+          className={`rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+            category === "all"
+              ? "border-brand-blue bg-brand-blue text-white"
+              : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
+          }`}
+        >
+          All
+        </button>
         {categories.map((c) => {
           const Icon = categoryIcons[c];
           const isActive = category === c;
-          const count = products.filter((p) => p.category === c).length;
           return (
             <button
               key={c}
               type="button"
               onClick={() => setCategory(isActive ? "all" : c)}
-              className={`flex items-center gap-3 rounded-lg border p-4 text-left transition-colors ${
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
                 isActive
-                  ? "border-brand-blue bg-brand-blue/5"
-                  : "border-gray-200 hover:border-brand-blue/40"
+                  ? "border-brand-blue bg-brand-blue text-white"
+                  : "border-gray-200 text-gray-600 hover:border-brand-blue/40"
               }`}
             >
-              <Icon className="h-7 w-7 shrink-0 text-brand-blue" />
-              <span>
-                <span className="block font-semibold text-brand-navy">
-                  {categoryLabels[c]}s
-                </span>
-                <span className="block text-xs text-gray-500">
-                  {count} {count === 1 ? "product" : "products"}
-                </span>
-              </span>
+              <Icon className="h-4 w-4 shrink-0" />
+              {categoryLabels[c]}s
             </button>
           );
         })}
       </div>
 
-      <div className="mt-6 flex flex-wrap items-end gap-4">
-        <div>
-          <label className="block text-xs font-medium text-brand-navy">
-            Category
-          </label>
+      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <label className="flex items-center gap-1.5 text-sm text-gray-600">
+          Brand
           <select
-            className={`mt-1 ${selectClass}`}
-            value={category}
-            onChange={(e) =>
-              setCategory(e.target.value as "all" | Product["category"])
-            }
-          >
-            <option value="all">All Categories</option>
-            {categories.map((c) => (
-              <option key={c} value={c}>
-                {categoryLabels[c]}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-xs font-medium text-brand-navy">
-            Type / Brand
-          </label>
-          <select
-            className={`mt-1 ${selectClass}`}
+            className={selectClass}
             value={brand}
             onChange={(e) => setBrand(e.target.value)}
           >
-            <option value="all">All Types</option>
+            <option value="all">All</option>
             {brands.map((b) => (
               <option key={b} value={b}>
                 {b}
               </option>
             ))}
           </select>
-        </div>
+        </label>
 
-        <div className="ml-auto flex gap-4">
-          <div>
-            <label className="block text-xs font-medium text-brand-navy">
-              Sort by
-            </label>
-            <select
-              className={`mt-1 ${selectClass}`}
-              value={sort}
-              onChange={(e) => setSort(e.target.value as SortOption)}
-            >
-              {(Object.keys(sortLabels) as SortOption[]).map((key) => (
-                <option key={key} value={key}>
-                  {sortLabels[key]}
-                </option>
-              ))}
-            </select>
-          </div>
+        <label className="flex items-center gap-1.5 text-sm text-gray-600">
+          Sort
+          <select
+            className={selectClass}
+            value={sort}
+            onChange={(e) => setSort(e.target.value as SortOption)}
+          >
+            {(Object.keys(sortLabels) as SortOption[]).map((key) => (
+              <option key={key} value={key}>
+                {sortLabels[key]}
+              </option>
+            ))}
+          </select>
+        </label>
 
-          <div>
-            <label className="block text-xs font-medium text-brand-navy">
-              Show
-            </label>
-            <select
-              className={`mt-1 ${selectClass}`}
-              value={pageSize}
-              onChange={(e) =>
-                setPageSize(
-                  e.target.value === "all"
-                    ? "all"
-                    : (Number(e.target.value) as PageSize)
-                )
-              }
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={30}>30</option>
-              <option value="all">All</option>
-            </select>
-          </div>
-        </div>
+        <label className="ml-auto flex items-center gap-1.5 text-sm text-gray-600">
+          Show
+          <select
+            className={selectClass}
+            value={pageSize}
+            onChange={(e) =>
+              setPageSize(
+                e.target.value === "all"
+                  ? "all"
+                  : (Number(e.target.value) as PageSize)
+              )
+            }
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={30}>30</option>
+            <option value="all">All</option>
+          </select>
+        </label>
       </div>
 
       {visibleProducts.length === 0 ? (
