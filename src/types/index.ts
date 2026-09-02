@@ -25,3 +25,11 @@ export interface TeamMember {
   description: string;
   image: string;
 }
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  location: string;
+  photo: string;
+  quote: string;
+}

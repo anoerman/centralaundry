@@ -1,6 +1,7 @@
 import ProductCard from "@/components/ProductCard";
 import PackageCard from "@/components/PackageCard";
 import TeamCard from "@/components/TeamCard";
+import TestimonialSection from "@/components/TestimonialSection";
 import { HeroSection } from "@/components/blocks/hero-section";
 import { products } from "@/data/products";
 import { packages } from "@/data/packages";
@@ -43,6 +44,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <TestimonialSection />
     </>
   );
 }
