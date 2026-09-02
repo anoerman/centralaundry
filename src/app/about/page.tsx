@@ -1,7 +1,10 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Target, Eye, HeartHandshake } from "lucide-react";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
+import StatsStrip from "@/components/StatsStrip";
+import TeamCard from "@/components/TeamCard";
 import { getWhatsAppLink } from "@/lib/whatsapp";
+import { team } from "@/data/team";
 
 export const metadata = {
   title: "About — CentralLaundry",
@@ -11,15 +14,48 @@ const ADDRESS_LINE_1 = "Jl. Pekapuran No.99, RT.001/RW.002";
 const ADDRESS_LINE_2 = "Sukatani, Tapos, Kota Depok, Jawa Barat";
 const MAP_QUERY = encodeURIComponent(`${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`);
 
+const values = [
+  {
+    icon: Target,
+    title: "Our Mission",
+    description:
+      "Give every laundry entrepreneur in Indonesia access to reliable commercial equipment and the support to run it well.",
+  },
+  {
+    icon: Eye,
+    title: "Our Vision",
+    description:
+      "Become the laundry industry's most trusted partner, from first machine to full-scale franchise.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Our Promise",
+    description:
+      "Free consultation before you buy, and a service team that stays reachable long after the sale.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
-      <div className="mx-auto max-w-3xl px-4 py-12">
-        <h1 className="text-3xl font-bold text-brand-navy">
-          About CentralLaundry
-        </h1>
+      <section className="bg-brand-navy text-white">
+        <div className="mx-auto max-w-3xl px-4 py-20 text-center">
+          <h1 className="text-4xl font-bold sm:text-5xl">
+            Built by people who answer the phone.
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-brand-yellow">
+            CentralLaundry has spent over a decade helping laundry
+            entrepreneurs across Indonesia buy the right machines, set up
+            their shop, and keep it running.
+          </p>
+        </div>
+      </section>
 
-        <div className="mt-6 space-y-4 text-gray-700">
+      <StatsStrip />
+
+      <div className="mx-auto max-w-3xl px-4 py-16">
+        <h2 className="text-2xl font-bold text-brand-navy">Our Story</h2>
+        <div className="mt-4 space-y-4 text-gray-700">
           <p>
             CentralLaundry started in Depok as a small distributor of
             secondhand washing machines, serving a handful of neighborhood
@@ -45,7 +81,38 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 pb-12">
+      <div className="bg-gray-50 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-bold text-brand-navy">
+            What Drives Us
+          </h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {values.map(({ icon: Icon, title, description }) => (
+              <div
+                key={title}
+                className="rounded-lg border border-gray-200 bg-white p-6"
+              >
+                <Icon className="h-8 w-8 text-brand-blue" />
+                <h3 className="mt-4 font-semibold text-brand-navy">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-600">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-2xl font-bold text-brand-navy">Meet the Team</h2>
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {team.map((member) => (
+            <TeamCard key={member.id} member={member} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="text-2xl font-bold text-brand-navy">Visit Us</h2>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div>
