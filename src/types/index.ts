@@ -17,3 +17,11 @@ export interface BusinessPackage {
   includes: string[];
   description: string;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  title: string;
+  description: string;
+  image: string;
+}
