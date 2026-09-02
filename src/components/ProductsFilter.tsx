@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { WashingMachine, Wind, Shirt, type LucideIcon } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/types";
 
@@ -11,6 +12,12 @@ const categoryLabels: Record<Product["category"], string> = {
   washer: "Washer",
   dryer: "Dryer",
   other: "Other",
+};
+
+const categoryIcons: Record<Product["category"], LucideIcon> = {
+  washer: WashingMachine,
+  dryer: Wind,
+  other: Shirt,
 };
 
 const sortLabels: Record<SortOption, string> = {
@@ -61,7 +68,37 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <div className="mt-8 flex flex-wrap items-end gap-4">
+      <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {categories.map((c) => {
+          const Icon = categoryIcons[c];
+          const isActive = category === c;
+          const count = products.filter((p) => p.category === c).length;
+          return (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setCategory(isActive ? "all" : c)}
+              className={`flex items-center gap-3 rounded-lg border p-4 text-left transition-colors ${
+                isActive
+                  ? "border-brand-blue bg-brand-blue/5"
+                  : "border-gray-200 hover:border-brand-blue/40"
+              }`}
+            >
+              <Icon className="h-7 w-7 shrink-0 text-brand-blue" />
+              <span>
+                <span className="block font-semibold text-brand-navy">
+                  {categoryLabels[c]}s
+                </span>
+                <span className="block text-xs text-gray-500">
+                  {count} {count === 1 ? "product" : "products"}
+                </span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-end gap-4">
         <div>
           <label className="block text-xs font-medium text-brand-navy">
             Category
