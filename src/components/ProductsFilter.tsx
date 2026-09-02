@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/types";
 
 type SortOption = "name-asc" | "price-asc" | "price-desc";
+type PageSize = 10 | 20 | 30 | "all";
 
 const categoryLabels: Record<Product["category"], string> = {
   washer: "Washer",
@@ -25,6 +26,7 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
   const [category, setCategory] = useState<"all" | Product["category"]>("all");
   const [brand, setBrand] = useState<"all" | string>("all");
   const [sort, setSort] = useState<SortOption>("name-asc");
+  const [pageSize, setPageSize] = useState<PageSize>(10);
 
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))),
@@ -53,6 +55,9 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
 
     return result;
   }, [products, category, brand, sort]);
+
+  const shownProducts =
+    pageSize === "all" ? visibleProducts : visibleProducts.slice(0, pageSize);
 
   return (
     <div>
@@ -95,21 +100,45 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
           </select>
         </div>
 
-        <div className="ml-auto">
-          <label className="block text-xs font-medium text-brand-navy">
-            Sort by
-          </label>
-          <select
-            className={`mt-1 ${selectClass}`}
-            value={sort}
-            onChange={(e) => setSort(e.target.value as SortOption)}
-          >
-            {(Object.keys(sortLabels) as SortOption[]).map((key) => (
-              <option key={key} value={key}>
-                {sortLabels[key]}
-              </option>
-            ))}
-          </select>
+        <div className="ml-auto flex gap-4">
+          <div>
+            <label className="block text-xs font-medium text-brand-navy">
+              Sort by
+            </label>
+            <select
+              className={`mt-1 ${selectClass}`}
+              value={sort}
+              onChange={(e) => setSort(e.target.value as SortOption)}
+            >
+              {(Object.keys(sortLabels) as SortOption[]).map((key) => (
+                <option key={key} value={key}>
+                  {sortLabels[key]}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-medium text-brand-navy">
+              Show
+            </label>
+            <select
+              className={`mt-1 ${selectClass}`}
+              value={pageSize}
+              onChange={(e) =>
+                setPageSize(
+                  e.target.value === "all"
+                    ? "all"
+                    : (Number(e.target.value) as PageSize)
+                )
+              }
+            >
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={30}>30</option>
+              <option value="all">All</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -118,11 +147,16 @@ export default function ProductsFilter({ products }: { products: Product[] }) {
           No products match the selected filters.
         </p>
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <>
+          <p className="mt-6 text-sm text-gray-500">
+            Showing {shownProducts.length} of {visibleProducts.length} products
+          </p>
+          <div className="mt-3 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {shownProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
