@@ -17,7 +17,8 @@ export interface BusinessPackage {
   id: string;
   name: string;
   price: number;
-  image: string;
+  /** Up to 5 image paths. First image is used as the primary/list thumbnail. */
+  images: string[];
   includes: string[];
   description: string;
 }

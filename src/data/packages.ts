@@ -6,7 +6,7 @@ export const packages: BusinessPackage[] = [
     id: "starter-package",
     name: "Starter Laundry Package",
     price: 75000000,
-    image: "/packages/starter.jpg",
+    images: ["/packages/starter-1.jpg", "/packages/starter-2.jpg", "/packages/starter-3.jpg", "/packages/starter-4.jpg"],
     includes: [
       "2x Commercial Washer 10kg",
       "1x Commercial Dryer 13kg",
@@ -20,7 +20,7 @@ export const packages: BusinessPackage[] = [
     id: "business-package",
     name: "Business Laundry Package",
     price: 150000000,
-    image: "/packages/business.jpg",
+    images: ["/packages/business-1.jpg", "/packages/business-2.jpg", "/packages/business-3.jpg", "/packages/business-4.jpg"],
     includes: [
       "4x Commercial Washer 15kg",
       "3x Commercial Dryer 18kg",
@@ -36,7 +36,7 @@ export const packages: BusinessPackage[] = [
     id: "franchise-package",
     name: "Franchise Laundry Package",
     price: 350000000,
-    image: "/packages/franchise.jpg",
+    images: ["/packages/franchise-1.jpg", "/packages/franchise-2.jpg", "/packages/franchise-3.jpg", "/packages/franchise-4.jpg"],
     includes: [
       "8x Commercial Washer 15kg",
       "6x Commercial Dryer 18kg",
