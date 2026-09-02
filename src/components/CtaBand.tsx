@@ -41,14 +41,11 @@ export default function CtaBand() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Button
               href={getWhatsAppLink(
-                "Hi CentralLaundry, I'd like to ask about your laundry machines and business packages."
+                "Hi CentralLaundry, I'd like to ask about your laundry machines and business packages.",
               )}
             >
               <SiWhatsapp className="h-5 w-5" />
               Chat on WhatsApp
-            </Button>
-            <Button href="/packages" variant="outline">
-              View Packages
             </Button>
           </div>
         </div>
@@ -58,16 +55,16 @@ export default function CtaBand() {
             <Link
               key={href}
               href={href}
-              className="group rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-white/25 hover:bg-white/10"
+              className="group rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-brand-yellow/40 hover:bg-white/10"
             >
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
-                    <Icon className="h-5 w-5" />
+                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-yellow/15">
+                    <Icon className="h-5 w-5 text-brand-yellow" />
                   </span>
                   <span className="font-semibold">{title}</span>
                 </span>
-                <ArrowRight className="h-4 w-4 text-gray-400 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 text-brand-yellow transition-transform group-hover:translate-x-1" />
               </div>
               <p className="mt-3 text-sm text-gray-400">{description}</p>
             </Link>
