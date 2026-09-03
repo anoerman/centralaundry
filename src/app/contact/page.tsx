@@ -3,11 +3,11 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata = {
-  title: "Contact — CentraLaundry",
+  title: "Contact CentraLaundry",
 };
 
-const ADDRESS_LINE_1 = "Jl. Pekapuran No.99, RT.001/RW.002";
-const ADDRESS_LINE_2 = "Sukatani, Tapos, Kota Depok, Jawa Barat";
+const ADDRESS_LINE_1 = "Jakarta";
+const ADDRESS_LINE_2 = "Indonesia";
 const MAP_QUERY = encodeURIComponent(`${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`);
 
 const quickContacts = [
@@ -28,8 +28,8 @@ const quickContacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@CentraLaundry.com",
-    href: "mailto:hello@CentraLaundry.com",
+    value: "hello@example.com",
+    href: "mailto:hello@example.com",
   },
 ];
 
@@ -71,7 +71,7 @@ export default function ContactPage() {
             We usually reply within one business day.
           </p>
 
-          {/* Static form for now — no submission handler yet, wired up once backend/DB is added. */}
+          {/* Static form for now no submission handler yet, wired up once backend/DB is added. */}
           <form className="mt-6 space-y-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
