@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-CentralLaundry — company profile website for a laundry business (reference brand: pusatmesinlaundry.com). Sells laundry appliances (washers, dryers, finishing equipment) and turnkey laundry business packages.
+CentraLaundry — company profile website for a laundry business (reference brand: pusatmesinlaundry.com). Sells laundry appliances (washers, dryers, finishing equipment) and turnkey laundry business packages.
 
 ## Stack
 
@@ -34,11 +34,11 @@ No test runner configured yet.
 
 Extracted from pusatmesinlaundry.com's theme CSS custom properties (`--clenq-*`), defined as Tailwind utilities in `globals.css`:
 
-| Utility | Hex | Role |
-|---|---|---|
-| `brand-yellow` | `#f5b700` | Accent / CTA buttons |
-| `brand-navy` | `#043e74` | Primary brand color (headers, headings, body accents) |
-| `brand-dark` | `#172000` | Secondary dark tone (footer) |
-| `brand-blue` | `#298be7` | Secondary accent (links, price highlights) |
+| Utility        | Hex       | Role                                                  |
+| -------------- | --------- | ----------------------------------------------------- |
+| `brand-yellow` | `#f5b700` | Accent / CTA buttons                                  |
+| `brand-navy`   | `#043e74` | Primary brand color (headers, headings, body accents) |
+| `brand-dark`   | `#172000` | Secondary dark tone (footer)                          |
+| `brand-blue`   | `#298be7` | Secondary accent (links, price highlights)            |
 
 Use these via Tailwind classes, e.g. `bg-brand-navy`, `text-brand-yellow`.

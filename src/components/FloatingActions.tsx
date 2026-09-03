@@ -30,7 +30,7 @@ export default function FloatingActions() {
 
       <a
         href={getWhatsAppLink(
-          "Hi CentralLaundry, I'd like to ask about your laundry machines and business packages."
+          "Hi CentraLaundry, I'd like to ask about your laundry machines and business packages.",
         )}
         target="_blank"
         rel="noreferrer"

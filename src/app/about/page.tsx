@@ -7,7 +7,7 @@ import { getWhatsAppLink } from "@/lib/whatsapp";
 import { team } from "@/data/team";
 
 export const metadata = {
-  title: "About — CentralLaundry",
+  title: "About — CentraLaundry",
 };
 
 const ADDRESS_LINE_1 = "Jl. Pekapuran No.99, RT.001/RW.002";
@@ -44,9 +44,9 @@ export default function AboutPage() {
             Built by people who answer the phone.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-brand-yellow">
-            CentralLaundry has spent over a decade helping laundry
-            entrepreneurs across Indonesia buy the right machines, set up
-            their shop, and keep it running.
+            CentraLaundry has spent over a decade helping laundry entrepreneurs
+            across Indonesia buy the right machines, set up their shop, and keep
+            it running.
           </p>
         </div>
       </section>
@@ -57,35 +57,32 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold text-brand-navy">Our Story</h2>
         <div className="mt-4 space-y-4 text-gray-700">
           <p>
-            CentralLaundry started in Depok as a small distributor of
-            secondhand washing machines, serving a handful of neighborhood
-            laundromats. As demand grew for reliable, higher-capacity
-            equipment, we began importing commercial-grade machines directly
-            from trusted manufacturers in the US, Europe, and Asia.
+            CentraLaundry started in Depok as a small distributor of secondhand
+            washing machines, serving a handful of neighborhood laundromats. As
+            demand grew for reliable, higher-capacity equipment, we began
+            importing commercial-grade machines directly from trusted
+            manufacturers in the US, Europe, and Asia.
           </p>
           <p>
-            Today, we supply commercial washers, dryers, and finishing
-            equipment to laundromats, hotels, and industrial laundry
-            operations across Indonesia — and we&apos;ve expanded beyond
-            machines alone. Our turnkey business packages bundle equipment
-            selection, installation, staff training, and ongoing maintenance
-            support, so entrepreneurs can open a laundry business without
-            navigating every step alone.
+            Today, we supply commercial washers, dryers, and finishing equipment
+            to laundromats, hotels, and industrial laundry operations across
+            Indonesia — and we&apos;ve expanded beyond machines alone. Our
+            turnkey business packages bundle equipment selection, installation,
+            staff training, and ongoing maintenance support, so entrepreneurs
+            can open a laundry business without navigating every step alone.
           </p>
           <p>
-            We&apos;re still a team that answers the phone. Every customer
-            gets a free consultation before buying, and our service team
-            stays reachable long after the sale — that&apos;s what &ldquo;purna
-            jual terbaik&rdquo; means to us.
+            We&apos;re still a team that answers the phone. Every customer gets
+            a free consultation before buying, and our service team stays
+            reachable long after the sale — that&apos;s what &ldquo;purna jual
+            terbaik&rdquo; means to us.
           </p>
         </div>
       </div>
 
       <div className="bg-gray-50 py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-2xl font-bold text-brand-navy">
-            What Drives Us
-          </h2>
+          <h2 className="text-2xl font-bold text-brand-navy">What Drives Us</h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {values.map(({ icon: Icon, title, description }) => (
               <div
@@ -93,9 +90,7 @@ export default function AboutPage() {
                 className="rounded-lg border border-gray-200 bg-white p-6"
               >
                 <Icon className="h-8 w-8 text-brand-blue" />
-                <h3 className="mt-4 font-semibold text-brand-navy">
-                  {title}
-                </h3>
+                <h3 className="mt-4 font-semibold text-brand-navy">{title}</h3>
                 <p className="mt-2 text-sm text-gray-600">{description}</p>
               </div>
             ))}
@@ -131,14 +126,14 @@ export default function AboutPage() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0 text-brand-blue" />
-                hello@centrallaundry.com
+                hello@centralaundry.com
               </li>
             </ul>
 
             <div className="mt-6">
               <Button
                 href={getWhatsAppLink(
-                  "Hi CentralLaundry, I'd like to visit your showroom. Could you share directions?"
+                  "Hi CentraLaundry, I'd like to visit your showroom. Could you share directions?",
                 )}
               >
                 Get Directions on WhatsApp
@@ -147,7 +142,7 @@ export default function AboutPage() {
           </div>
 
           <iframe
-            title="CentralLaundry location map"
+            title="CentraLaundry location map"
             src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
             className="h-72 w-full rounded-lg border border-gray-200 lg:h-full"
             loading="lazy"

@@ -3,7 +3,7 @@ import CtaBand from "@/components/CtaBand";
 import { events } from "@/data/events";
 
 export const metadata = {
-  title: "Events — CentralLaundry",
+  title: "Events — CentraLaundry",
 };
 
 export default function EventsPage() {
@@ -13,7 +13,7 @@ export default function EventsPage() {
         <h1 className="text-3xl font-bold text-brand-navy">Events</h1>
         <p className="mt-2 text-gray-600">
           A look at exhibitions, training, installations, and community
-          activities from CentralLaundry.
+          activities from CentraLaundry.
         </p>
         <EventsList events={events} />
       </div>

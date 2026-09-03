@@ -8,7 +8,7 @@ export const testimonials: Testimonial[] = [
     location: "Bandung, Jawa Barat",
     photo: "/testimonials/rina-hartono.jpg",
     quote:
-      "Mesin cuci komersial dari CentralLaundry sangat awet, sudah 2 tahun jalan tanpa masalah besar. Tim servisnya juga responsif.",
+      "Mesin cuci komersial dari CentraLaundry sangat awet, sudah 2 tahun jalan tanpa masalah besar. Tim servisnya juga responsif.",
   },
   {
     id: "hendra-gunawan",

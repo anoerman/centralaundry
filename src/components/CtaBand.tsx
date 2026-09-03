@@ -16,14 +16,14 @@ export default function CtaBand() {
           Ready to Start Your Laundry Business?
         </h2>
         <p className="mx-auto mt-4 max-w-md text-gray-300">
-          Chat with us on WhatsApp for a free consultation and get started
-          right away.
+          Chat with us on WhatsApp for a free consultation and get started right
+          away.
         </p>
 
         <div className="mt-8 flex justify-center">
           <Button
             href={getWhatsAppLink(
-              "Hi CentralLaundry, I'd like to ask about your laundry machines and business packages."
+              "Hi CentraLaundry, I'd like to ask about your laundry machines and business packages.",
             )}
           >
             <SiWhatsapp className="h-5 w-5" />

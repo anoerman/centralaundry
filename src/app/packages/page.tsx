@@ -3,7 +3,7 @@ import PackageCard from "@/components/PackageCard";
 import { packages } from "@/data/packages";
 
 export const metadata = {
-  title: "Business Packages — CentralLaundry",
+  title: "Business Packages — CentraLaundry",
 };
 
 export default function PackagesPage() {

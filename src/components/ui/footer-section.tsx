@@ -21,10 +21,10 @@ function Footersection() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
             <address className="space-y-2 text-sm not-italic">
-              <p>Jl. Pekapuran No.99, RT.001/RW.002</p>
-              <p>Sukatani, Tapos, Kota Depok, Jawa Barat</p>
+              <p>Your company address</p>
+              <p>Your company city and province</p>
               <p>Phone: (021) xxx-xxxx</p>
-              <p>Email: hello@test.com</p>
+              <p>Email: hello@example.com</p>
             </address>
             <div className="mt-4 flex space-x-4">
               <TooltipProvider>
@@ -37,7 +37,7 @@ function Footersection() {
                       asChild
                     >
                       <a
-                        href="https://instagram.com/testpusatmesinlaundry"
+                        href="#"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Instagram"
@@ -61,7 +61,7 @@ function Footersection() {
                       asChild
                     >
                       <a
-                        href="https://facebook.com/testpusatmesinlaundry"
+                        href="#"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Facebook"
@@ -85,7 +85,7 @@ function Footersection() {
                       asChild
                     >
                       <a
-                        href="https://pusatmesinlaundry.com"
+                        href="#"
                         target="_blank"
                         rel="noreferrer"
                         aria-label="Website"
@@ -108,10 +108,7 @@ function Footersection() {
                       className="rounded-full"
                       asChild
                     >
-                      <a
-                        href="mailto:hello@centrallaundry.com"
-                        aria-label="Email"
-                      >
+                      <a href="mailto:hello@example.com" aria-label="Email">
                         <AtSign className="h-4 w-4" />
                       </a>
                     </Button>
@@ -196,7 +193,7 @@ function Footersection() {
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} CentralLaundry. All rights
+            &copy; {new Date().getFullYear()} CentraLaundry. All rights
             reserved.
           </p>
           <nav className="flex gap-4 text-sm">

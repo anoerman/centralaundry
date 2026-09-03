@@ -3,7 +3,7 @@ import CtaBand from "@/components/CtaBand";
 import { products } from "@/data/products";
 
 export const metadata = {
-  title: "Products — CentralLaundry",
+  title: "Products — CentraLaundry",
 };
 
 export default function ProductsPage() {

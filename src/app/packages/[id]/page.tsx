@@ -48,7 +48,7 @@ export default async function PackageDetailPage({
           <div className="mt-6">
             <Button
               href={getWhatsAppLink(
-                `Hi CentralLaundry, I'm interested in ${pkg.name}. Could you share more details?`
+                `Hi CentraLaundry, I'm interested in ${pkg.name}. Could you share more details?`,
               )}
             >
               Inquire About This Package

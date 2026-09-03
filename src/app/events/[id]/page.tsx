@@ -19,7 +19,9 @@ export async function generateMetadata({
 }) {
   const { id } = await params;
   const event = events.find((e) => e.id === id);
-  return { title: event ? `${event.title} — CentralLaundry` : "Event Not Found" };
+  return {
+    title: event ? `${event.title} — CentraLaundry` : "Event Not Found",
+  };
 }
 
 export default async function EventDetailPage({
@@ -74,7 +76,7 @@ export default async function EventDetailPage({
           <div className="mt-6">
             <Button
               href={getWhatsAppLink(
-                `Hi CentralLaundry, I saw "${event.title}" and would like to know more.`
+                `Hi CentraLaundry, I saw "${event.title}" and would like to know more.`,
               )}
             >
               Ask About This Event
