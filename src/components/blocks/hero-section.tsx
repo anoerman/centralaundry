@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -41,11 +42,13 @@ export function HeroSection() {
           </div>
 
           <div className="relative z-10 mx-auto mt-12 aspect-square w-full max-w-md overflow-hidden rounded-3xl bg-gray-100 lg:mt-0 lg:w-1/2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="https://picsum.photos/id/159/800/800"
               alt="Laundry business"
-              className="h-full w-full object-cover"
+              fill
+              priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
           </div>
         </div>

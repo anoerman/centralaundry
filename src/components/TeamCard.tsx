@@ -1,12 +1,14 @@
+import Image from "next/image";
 import type { TeamMember } from "@/types";
 
 export default function TeamCard({ member }: { member: TeamMember }) {
   return (
     <div className="rounded-lg border border-gray-200 p-6 text-center shadow-sm">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={member.image}
         alt={member.name}
+        width={96}
+        height={96}
         className="mx-auto mb-4 h-24 w-24 rounded-full object-cover"
       />
       <h3 className="text-lg font-semibold text-brand-navy">{member.name}</h3>

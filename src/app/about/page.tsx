@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MapPin, Phone, Mail, Target, Eye, HeartHandshake } from "lucide-react";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
@@ -57,8 +58,15 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold text-brand-navy">Our Story</h2>
         <div className="mt-4 space-y-4 text-gray-700">
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div className="bg-gray-100 rounded-3xl"></div>
-            {/* <div className="relative z-10 mx-auto mt-12 aspect-square w-full max-w-md rounded-3xl bg-gray-100 lg:mt-0 lg:w-1/2" /> */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100">
+              <Image
+                src="https://picsum.photos/seed/about-company-img/600/450"
+                alt="About"
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
 
             <div className="col-span-2">
               <p>
