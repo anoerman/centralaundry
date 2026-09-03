@@ -40,7 +40,14 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto mt-12 aspect-square w-full max-w-md rounded-3xl bg-gray-100 lg:mt-0 lg:w-1/2" />
+          <div className="relative z-10 mx-auto mt-12 aspect-square w-full max-w-md overflow-hidden rounded-3xl bg-gray-100 lg:mt-0 lg:w-1/2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://picsum.photos/id/159/800/800"
+              alt="Laundry business"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

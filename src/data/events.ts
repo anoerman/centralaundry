@@ -8,12 +8,7 @@ export const events: CompanyEvent[] = [
     category: "Exhibition",
     date: "2026-03-14",
     location: "Jakarta Convention Center, Jakarta",
-    images: [
-      "/events/laundry-expo-1.jpg",
-      "/events/laundry-expo-2.jpg",
-      "/events/laundry-expo-3.jpg",
-      "/events/laundry-expo-4.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-1-1/600/450", "https://picsum.photos/seed/event-1-2/600/450", "https://picsum.photos/seed/event-1-3/600/450", "https://picsum.photos/seed/event-1-4/600/450"],
     excerpt:
       "We showcased our full lineup of commercial washers and dryers to over 2,000 laundry business owners.",
     description:
@@ -30,11 +25,7 @@ export const events: CompanyEvent[] = [
     category: "Training",
     date: "2026-01-22",
     location: "CentraLaundry Workshop, Depok",
-    images: [
-      "/events/technical-training-1.jpg",
-      "/events/technical-training-2.jpg",
-      "/events/technical-training-3.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-2-1/600/450", "https://picsum.photos/seed/event-2-2/600/450", "https://picsum.photos/seed/event-2-3/600/450", "https://picsum.photos/seed/event-2-4/600/450"],
     excerpt:
       "Our service engineers completed a 3-day certification refresh on the newest commercial machine models.",
     description:
@@ -51,12 +42,7 @@ export const events: CompanyEvent[] = [
     category: "Installation",
     date: "2025-11-08",
     location: "Bandung, Jawa Barat",
-    images: [
-      "/events/franchise-bandung-1.jpg",
-      "/events/franchise-bandung-2.jpg",
-      "/events/franchise-bandung-3.jpg",
-      "/events/franchise-bandung-4.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-3-1/600/450", "https://picsum.photos/seed/event-3-2/600/450", "https://picsum.photos/seed/event-3-3/600/450", "https://picsum.photos/seed/event-3-4/600/450"],
     excerpt:
       "Delivered and installed a full Franchise Laundry Package for our newest partner outlet in Bandung.",
     description:
@@ -73,11 +59,7 @@ export const events: CompanyEvent[] = [
     category: "Community",
     date: "2025-09-19",
     location: "Depok, Jawa Barat",
-    images: [
-      "/events/csr-donation-1.jpg",
-      "/events/csr-donation-2.jpg",
-      "/events/csr-donation-3.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-4-1/600/450", "https://picsum.photos/seed/event-4-2/600/450", "https://picsum.photos/seed/event-4-3/600/450", "https://picsum.photos/seed/event-4-4/600/450"],
     excerpt:
       "Donated a commercial washer and dryer set to a local orphanage as part of our community outreach program.",
     description:
@@ -94,11 +76,7 @@ export const events: CompanyEvent[] = [
     category: "Partnership",
     date: "2025-07-02",
     location: "Barcelona, Spain",
-    images: [
-      "/events/factory-visit-1.jpg",
-      "/events/factory-visit-2.jpg",
-      "/events/factory-visit-3.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-5-1/600/450", "https://picsum.photos/seed/event-5-2/600/450", "https://picsum.photos/seed/event-5-3/600/450", "https://picsum.photos/seed/event-5-4/600/450"],
     excerpt:
       "Our founder visited Girbau's manufacturing plant to strengthen our distribution partnership.",
     description:
@@ -115,11 +93,7 @@ export const events: CompanyEvent[] = [
     category: "Community",
     date: "2025-05-24",
     location: "CentraLaundry Showroom, Depok",
-    images: [
-      "/events/open-house-1.jpg",
-      "/events/open-house-2.jpg",
-      "/events/open-house-3.jpg",
-    ],
+    images: ["https://picsum.photos/seed/event-6-1/600/450", "https://picsum.photos/seed/event-6-2/600/450", "https://picsum.photos/seed/event-6-3/600/450", "https://picsum.photos/seed/event-6-4/600/450"],
     excerpt:
       "Hosted an open house for current and prospective laundry business owners to share tips and network.",
     description:

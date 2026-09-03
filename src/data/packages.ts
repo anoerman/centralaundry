@@ -6,7 +6,7 @@ export const packages: BusinessPackage[] = [
     id: "starter-package",
     name: "Starter Laundry Package",
     price: 75000000,
-    images: ["/packages/starter-1.jpg", "/packages/starter-2.jpg", "/packages/starter-3.jpg", "/packages/starter-4.jpg"],
+    images: ["https://picsum.photos/seed/package-1-1/600/450", "https://picsum.photos/seed/package-1-2/600/450", "https://picsum.photos/seed/package-1-3/600/450", "https://picsum.photos/seed/package-1-4/600/450"],
     includes: [
       "2x Commercial Washer 10kg",
       "1x Commercial Dryer 13kg",
@@ -20,7 +20,7 @@ export const packages: BusinessPackage[] = [
     id: "business-package",
     name: "Business Laundry Package",
     price: 150000000,
-    images: ["/packages/business-1.jpg", "/packages/business-2.jpg", "/packages/business-3.jpg", "/packages/business-4.jpg"],
+    images: ["https://picsum.photos/seed/package-2-1/600/450", "https://picsum.photos/seed/package-2-2/600/450", "https://picsum.photos/seed/package-2-3/600/450", "https://picsum.photos/seed/package-2-4/600/450"],
     includes: [
       "4x Commercial Washer 15kg",
       "3x Commercial Dryer 18kg",
@@ -36,7 +36,7 @@ export const packages: BusinessPackage[] = [
     id: "franchise-package",
     name: "Franchise Laundry Package",
     price: 350000000,
-    images: ["/packages/franchise-1.jpg", "/packages/franchise-2.jpg", "/packages/franchise-3.jpg", "/packages/franchise-4.jpg"],
+    images: ["https://picsum.photos/seed/package-3-1/600/450", "https://picsum.photos/seed/package-3-2/600/450", "https://picsum.photos/seed/package-3-3/600/450", "https://picsum.photos/seed/package-3-4/600/450"],
     includes: [
       "8x Commercial Washer 15kg",
       "6x Commercial Dryer 18kg",

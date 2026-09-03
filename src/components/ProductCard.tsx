@@ -18,7 +18,13 @@ export default function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.id}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:-translate-y-0.5 hover:border-brand-blue/40 hover:shadow-lg"
     >
-      <div className="relative aspect-[4/3] bg-gray-100">
+      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={product.images[0]}
+          alt={product.name}
+          className="h-full w-full object-cover"
+        />
         {product.isBestSeller && (
           <span className="absolute left-3 top-3 rounded-full bg-brand-yellow px-2.5 py-1 text-xs font-semibold text-brand-navy shadow-sm">
             Best Seller
