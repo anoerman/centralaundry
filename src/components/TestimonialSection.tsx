@@ -22,7 +22,12 @@ export default function TestimonialSection() {
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.id}>
                 <div className="w-full rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
-                  <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-gray-100" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={testimonial.photo}
+                    alt={testimonial.name}
+                    className="mx-auto mb-4 h-16 w-16 rounded-full object-cover"
+                  />
                   <p className="text-gray-700">&ldquo;{testimonial.quote}&rdquo;</p>
                   <p className="mt-4 font-semibold text-brand-navy">
                     {testimonial.name}

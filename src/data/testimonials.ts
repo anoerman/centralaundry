@@ -6,7 +6,7 @@ export const testimonials: Testimonial[] = [
     id: "rina-hartono",
     name: "Rina Hartono",
     location: "Bandung, Jawa Barat",
-    photo: "/testimonials/rina-hartono.jpg",
+    photo: "https://picsum.photos/seed/testimonial-image-1/450/450",
     quote:
       "Mesin cuci komersial dari CentraLaundry sangat awet, sudah 2 tahun jalan tanpa masalah besar. Tim servisnya juga responsif.",
   },
@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
     id: "hendra-gunawan",
     name: "Hendra Gunawan",
     location: "Surabaya, Jawa Timur",
-    photo: "/testimonials/hendra-gunawan.jpg",
+    photo: "https://picsum.photos/seed/testimonial-image-2/450/450",
     quote:
       "Paket bisnis laundry-nya lengkap banget, dari mesin sampai pelatihan staff. Usaha laundry saya bisa buka lebih cepat dari rencana.",
   },
@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
     id: "maria-simanjuntak",
     name: "Maria Simanjuntak",
     location: "Medan, Sumatera Utara",
-    photo: "/testimonials/maria-simanjuntak.jpg",
+    photo: "https://picsum.photos/seed/testimonial-image-3/450/450",
     quote:
       "Konsultasinya detail, dibantu pilih kapasitas mesin sesuai kebutuhan hotel kami. Hasilnya sangat memuaskan.",
   },
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     id: "agus-prasetyo",
     name: "Agus Prasetyo",
     location: "Yogyakarta",
-    photo: "/testimonials/agus-prasetyo.jpg",
+    photo: "https://picsum.photos/seed/testimonial-image-4/450/450",
     quote:
       "Dukungan purna jual terbaik yang pernah saya temui. Kalau ada kendala, teknisi datang cepat.",
   },
