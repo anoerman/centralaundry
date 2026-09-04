@@ -5,3 +5,6 @@ export function formatEventDate(isoDate: string) {
     year: "numeric",
   });
 }
+
+/** Generic alias — same formatter, used outside the events context (e.g. blog). */
+export const formatDate = formatEventDate;

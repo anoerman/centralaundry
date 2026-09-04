@@ -1,29 +1,29 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import EventCard from "@/components/EventCard";
+import BlogCard from "@/components/BlogCard";
 import Pagination from "@/components/Pagination";
-import type { CompanyEvent } from "@/types";
+import type { BlogPost } from "@/types";
 
 const PAGE_SIZE = 3;
 
-export default function EventsList({ events }: { events: CompanyEvent[] }) {
+export default function BlogList({ posts }: { posts: BlogPost[] }) {
   const [category, setCategory] = useState<"all" | string>("all");
   const [page, setPage] = useState(1);
 
   const categories = useMemo(
-    () => Array.from(new Set(events.map((e) => e.category))),
-    [events]
+    () => Array.from(new Set(posts.map((p) => p.category))),
+    [posts]
   );
 
-  const visibleEvents = useMemo(() => {
-    if (category === "all") return events;
-    return events.filter((e) => e.category === category);
-  }, [events, category]);
+  const visiblePosts = useMemo(() => {
+    if (category === "all") return posts;
+    return posts.filter((p) => p.category === category);
+  }, [posts, category]);
 
-  const totalPages = Math.max(1, Math.ceil(visibleEvents.length / PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(visiblePosts.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
-  const shownEvents = visibleEvents.slice(
+  const shownPosts = visiblePosts.slice(
     (currentPage - 1) * PAGE_SIZE,
     currentPage * PAGE_SIZE
   );
@@ -58,15 +58,15 @@ export default function EventsList({ events }: { events: CompanyEvent[] }) {
         ))}
       </div>
 
-      {visibleEvents.length === 0 ? (
+      {visiblePosts.length === 0 ? (
         <p className="mt-12 text-center text-gray-500">
-          No events in this category yet.
+          No articles in this category yet.
         </p>
       ) : (
         <>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {shownEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+            {shownPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
             ))}
           </div>
           <Pagination

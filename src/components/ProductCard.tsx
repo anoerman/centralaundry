@@ -27,6 +27,9 @@ export default function ProductCard({ product }: { product: Product }) {
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover"
         />
+        {(product.isBestSeller || onSale) && (
+          <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-black/25 to-transparent backdrop-blur-[2px]" />
+        )}
         {product.isBestSeller && (
           <span className="absolute left-3 top-3 rounded-full bg-brand-yellow px-2.5 py-1 text-xs font-semibold text-brand-navy shadow-sm">
             Best Seller

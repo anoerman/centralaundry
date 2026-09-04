@@ -156,6 +156,12 @@ function Footersection() {
                 Events
               </Link>
               <Link
+                href="/blog"
+                className="block transition-colors hover:text-primary"
+              >
+                Blog
+              </Link>
+              <Link
                 href="/contact"
                 className="block transition-colors hover:text-primary"
               >
