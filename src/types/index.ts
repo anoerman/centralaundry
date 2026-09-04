@@ -60,3 +60,18 @@ export interface CompanyEvent {
   description: string;
   highlights: string[];
 }
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  category: string;
+  coverImage: string;
+  excerpt: string;
+  /** Body paragraphs. */
+  content: string[];
+  /** "Key Takeaways" bullets shown in a callout box. */
+  takeaways: string[];
+  author: string;
+  readTimeMinutes: number;
+  date: string;
+}
