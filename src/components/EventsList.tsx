@@ -2,10 +2,14 @@
 
 import { useMemo, useState } from "react";
 import EventCard from "@/components/EventCard";
+import Pagination from "@/components/Pagination";
 import type { CompanyEvent } from "@/types";
+
+const PAGE_SIZE = 3;
 
 export default function EventsList({ events }: { events: CompanyEvent[] }) {
   const [category, setCategory] = useState<"all" | string>("all");
+  const [page, setPage] = useState(1);
 
   const categories = useMemo(
     () => Array.from(new Set(events.map((e) => e.category))),
@@ -16,6 +20,13 @@ export default function EventsList({ events }: { events: CompanyEvent[] }) {
     if (category === "all") return events;
     return events.filter((e) => e.category === category);
   }, [events, category]);
+
+  const totalPages = Math.max(1, Math.ceil(visibleEvents.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const shownEvents = visibleEvents.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
   return (
     <div>
@@ -52,11 +63,18 @@ export default function EventsList({ events }: { events: CompanyEvent[] }) {
           No events in this category yet.
         </p>
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visibleEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
+        <>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {shownEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
+        </>
       )}
     </div>
   );

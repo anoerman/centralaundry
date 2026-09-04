@@ -2,10 +2,14 @@
 
 import { useMemo, useState } from "react";
 import BlogCard from "@/components/BlogCard";
+import Pagination from "@/components/Pagination";
 import type { BlogPost } from "@/types";
+
+const PAGE_SIZE = 3;
 
 export default function BlogList({ posts }: { posts: BlogPost[] }) {
   const [category, setCategory] = useState<"all" | string>("all");
+  const [page, setPage] = useState(1);
 
   const categories = useMemo(
     () => Array.from(new Set(posts.map((p) => p.category))),
@@ -16,6 +20,13 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
     if (category === "all") return posts;
     return posts.filter((p) => p.category === category);
   }, [posts, category]);
+
+  const totalPages = Math.max(1, Math.ceil(visiblePosts.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const shownPosts = visiblePosts.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
   return (
     <div>
@@ -52,11 +63,18 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
           No articles in this category yet.
         </p>
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visiblePosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))}
-        </div>
+        <>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {shownPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
+        </>
       )}
     </div>
   );

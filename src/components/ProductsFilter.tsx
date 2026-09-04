@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
+import Pagination from "@/components/Pagination";
 import type { Product } from "@/types";
 
 type SortOption = "name-asc" | "price-asc" | "price-desc";
@@ -49,6 +50,7 @@ export default function ProductsFilter({
   const [sort, setSort] = useState<SortOption>("name-asc");
   const [pageSize, setPageSize] = useState<PageSize>(10);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [page, setPage] = useState(1);
 
   const categories = useMemo(
     () => Array.from(new Set(products.map((p) => p.category))),
@@ -78,8 +80,14 @@ export default function ProductsFilter({
     return result;
   }, [products, category, brand, sort]);
 
+  const totalPages =
+    pageSize === "all" ? 1 : Math.max(1, Math.ceil(visibleProducts.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
   const shownProducts =
-    pageSize === "all" ? visibleProducts : visibleProducts.slice(0, pageSize);
+    pageSize === "all"
+      ? visibleProducts
+      : visibleProducts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
 
   return (
     <div>
@@ -213,6 +221,11 @@ export default function ProductsFilter({
           <p className="mt-6 text-sm text-gray-500">
             Showing {shownProducts.length} of {visibleProducts.length} products
           </p>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
         </>
       )}
     </div>
