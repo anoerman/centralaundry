@@ -3,11 +3,11 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
 export const metadata = {
-  title: "Contact — CentralLaundry",
+  title: "Contact CentraLaundry",
 };
 
-const ADDRESS_LINE_1 = "Jl. Pekapuran No.99, RT.001/RW.002";
-const ADDRESS_LINE_2 = "Sukatani, Tapos, Kota Depok, Jawa Barat";
+const ADDRESS_LINE_1 = "Jakarta";
+const ADDRESS_LINE_2 = "Indonesia";
 const MAP_QUERY = encodeURIComponent(`${ADDRESS_LINE_1}, ${ADDRESS_LINE_2}`);
 
 const quickContacts = [
@@ -16,7 +16,7 @@ const quickContacts = [
     label: "WhatsApp",
     value: "Fastest way to reach us",
     href: getWhatsAppLink(
-      "Hi CentralLaundry, I'd like to ask about your laundry machines and business packages."
+      "Hi CentraLaundry, I'd like to ask about your laundry machines and business packages.",
     ),
   },
   {
@@ -28,8 +28,8 @@ const quickContacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@centrallaundry.com",
-    href: "mailto:hello@centrallaundry.com",
+    value: "hello@example.com",
+    href: "mailto:hello@example.com",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function ContactPage() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       <h1 className="text-3xl font-bold text-brand-navy">Contact Us</h1>
       <p className="mt-2 max-w-xl text-gray-600">
-        Questions about our machines, business packages, or an existing
-        order? Reach us directly, or send a message below.
+        Questions about our machines, business packages, or an existing order?
+        Reach us directly, or send a message below.
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -71,7 +71,7 @@ export default function ContactPage() {
             We usually reply within one business day.
           </p>
 
-          {/* Static form for now — no submission handler yet, wired up once backend/DB is added. */}
+          {/* Static form for now no submission handler yet, wired up once backend/DB is added. */}
           <form className="mt-6 space-y-4">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
           </ul>
 
           <iframe
-            title="CentralLaundry location map"
+            title="CentraLaundry location map"
             src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
             className="mt-4 h-64 w-full rounded-lg border border-gray-200"
             loading="lazy"

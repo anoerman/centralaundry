@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
 import type { CompanyEvent } from "@/types";
@@ -9,7 +10,14 @@ export default function EventCard({ event }: { event: CompanyEvent }) {
       href={`/events/${event.id}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:-translate-y-0.5 hover:border-brand-blue/40 hover:shadow-lg"
     >
-      <div className="relative aspect-[4/3] bg-gray-100">
+      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+        <Image
+          src={event.images[0]}
+          alt={event.title}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
         <span className="absolute left-3 top-3 rounded-full bg-brand-navy px-2.5 py-1 text-xs font-semibold text-white shadow-sm">
           {event.category}
         </span>

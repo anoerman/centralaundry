@@ -33,7 +33,7 @@ export default async function ProductDetailPage({
   const discountPercent = onSale
     ? Math.round(
         ((product.originalPrice! - product.price) / product.originalPrice!) *
-          100
+          100,
       )
     : 0;
   const savings = onSale ? product.originalPrice! - product.price : 0;
@@ -100,7 +100,7 @@ export default async function ProductDetailPage({
             <div className="mt-6">
               <Button
                 href={getWhatsAppLink(
-                  `Hi CentralLaundry, I'm interested in ${product.name}. Could you share more details?`
+                  `Hi CentraLaundry, I'm interested in ${product.name}. Could you share more details?`,
                 )}
               >
                 Inquire About This Product

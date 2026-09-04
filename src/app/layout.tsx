@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CentralLaundry — Laundry Machines & Business Packages",
+  title: "CentraLaundry — Laundry Machines & Business Packages",
   description:
-    "CentralLaundry sells commercial washers, dryers, and complete laundry business packages.",
+    "CentraLaundry sells commercial washers, dryers, and complete laundry business packages.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
